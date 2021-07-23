@@ -12,6 +12,11 @@ from cmq.cmq_exception import *
 METHODS = ["POST", "GET"]
 PERMISSION_ACTIONS = ["setqueueattributes", "getqueueattributes", "sendmessage", "receivemessage", "deletemessage", "peekmessage", "changevisibility"]
 
+root_path = sys.path[0]
+log_dir_base = root_path + '/logs/'
+if not os.path.exists(log_dir_base):
+   os.makedirs(log_dir_base)
+
 class CMQLogger:
     @staticmethod
     def get_logger(log_name="CMQ_python_sdk", log_file="CMQ_python_sdk.log", log_level=logging.INFO):

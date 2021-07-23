@@ -12,9 +12,14 @@ from cmq.cmq_exception import *
 METHODS = ["POST", "GET"]
 PERMISSION_ACTIONS = ["setqueueattributes", "getqueueattributes", "sendmessage", "receivemessage", "deletemessage", "peekmessage", "changevisibility"]
 
+root_path = sys.path[0]
+log_dir_base = root_path + '/logs/'
+if not os.path.exists(log_dir_base):
+   os.makedirs(log_dir_base)
+
 class CMQLogger:
     @staticmethod
-    def get_logger(log_name="CMQ_python_sdk", log_file=sys.path[0]+"/logs/CMQ_python_sdk.log", log_level=logging.INFO):
+    def get_logger(log_name="CMQ_python_sdk", log_file=log_dir_base+"CMQ_python_sdk.log", log_level=logging.INFO):
         logger = logging.getLogger(log_name)
         if logger.handlers == []:
             fileHandler = logging.handlers.RotatingFileHandler(log_file, maxBytes=10*1024*1024)

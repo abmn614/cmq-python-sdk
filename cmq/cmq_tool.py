@@ -8,6 +8,7 @@ import types
 import logging
 import logging.handlers
 from cmq.cmq_exception import *
+import os
 
 METHODS = ["POST", "GET"]
 PERMISSION_ACTIONS = ["setqueueattributes", "getqueueattributes", "sendmessage", "receivemessage", "deletemessage", "peekmessage", "changevisibility"]

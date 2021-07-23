@@ -14,7 +14,7 @@ PERMISSION_ACTIONS = ["setqueueattributes", "getqueueattributes", "sendmessage",
 
 class CMQLogger:
     @staticmethod
-    def get_logger(log_name="CMQ_python_sdk", log_file="CMQ_python_sdk.log", log_level=logging.INFO):
+    def get_logger(log_name="CMQ_python_sdk", log_file=sys.path[0]+"/logs/CMQ_python_sdk.log", log_level=logging.INFO):
         logger = logging.getLogger(log_name)
         if logger.handlers == []:
             fileHandler = logging.handlers.RotatingFileHandler(log_file, maxBytes=10*1024*1024)
